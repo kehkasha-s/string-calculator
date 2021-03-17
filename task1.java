@@ -3,7 +3,19 @@ public class AddClass {
     //Add(string numbers) method to add 1 or 2 numbers and return 0 if string is empty
     public static int Add(String numbers){
         //use regular expression to match either ',' or '\n' (and not both,it will return exception message)as delimiters
-        String[] str_arr = numbers.split(",|\\\\n");
+        String[] str_arr;
+        //if new line is given to change delimiter
+        if(numbers.startsWith("//")){
+                String[] str_arr2= numbers.split("\\\\n",2);  //split two lines of input and add to array
+                String string1=str_arr2[0].substring(2);      // extract delemiter from 1st line
+                str_arr= str_arr2[1].split(string1);        //split numbers from new line by extracted delimiter 
+            
+        }
+        //else hold existing scenarios
+        else{
+            System.out.println("no");
+            str_arr = numbers.split(",|\\\\n");
+        }
         
         //condition to checkc for empty string
         if(str_arr.length<=1 && str_arr[0].equals("")){
