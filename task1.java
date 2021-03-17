@@ -6,14 +6,23 @@ public class AddClass {
         
         //condition to checkc for empty string
         if(str_arr.length<=1 && str_arr[0].equals("")){
-            System.out.println("0");
+            System.out.println(0);
             }
             
-        //condition for adding 1 or 2 numbers(use double type while addition and convert to int while printing output)
-        else if(str_arr.length<=2){
+        //condition for adding unknown amount of numbers(use double type while addition and convert to int while printing output)
+        else{
             double sum=0;
             for (int i = 0; i < str_arr.length; i++){
+                //to handle exception
+                try{
                 sum =sum+Double.parseDouble(str_arr[i]);
+                }
+                catch(Exception e){
+                    //break function if exception occured
+                    System.out.println("Exception occured while adding numbers");
+                    return 0;
+                    // break;
+                }
                 }
             
             int _sum=(int)sum;
