@@ -2,7 +2,8 @@ public class AddClass {
     
     //Add(string numbers) method to add 1 or 2 numbers and return 0 if string is empty
     public static int Add(String numbers){
-        String[] str_arr = numbers.split(",");
+        //use regular expression to match either ',' or '\n' (and not both,it will return exception message)as delimiters
+        String[] str_arr = numbers.split(",|\\\\n");
         
         //condition to checkc for empty string
         if(str_arr.length<=1 && str_arr[0].equals("")){
