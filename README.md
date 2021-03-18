@@ -19,3 +19,5 @@ STOP HERE if you are a beginner. Continue if you can finish the steps so far in 
 7.  Delimiters can be of any length with the following format: “//[delimiter]\n” for example: “//[***]\n1***2***3” should return 6
 8. Allow multiple delimiters like this: “//[delim1][delim2]\n” for example “//[*][%]\n1*2%3” should return 6.
 9. make sure you can also handle multiple delimiters with length longer than one char
+
+task1.java is the java file of the string calculater(the task that needs to be completed) that contains multiple commits as the task evolves.
