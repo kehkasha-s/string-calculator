@@ -17,13 +17,25 @@ public class AddClass {
     public static int Add(String numbers){
         //use regular expression to match either ',' or '\n' (and not both,it will return exception message)as delimiters
         String[] str_arr;
-        //if new line is given to change delimiter
-        if(numbers.startsWith("//")){
+        
+        //to handle multiple delimeters(it will also handle multiple delimetes of multiple lenghts)(task 8 and 9 will be handled here)
+        if(numbers.startsWith("//[")){
+             String[] str_arr2= numbers.split("\\\\n",2);  //split two lines of input and add to array
+             String string1=str_arr2[0].substring(3,(str_arr2[0]).length()-1);      // extract '//[' from starting and ']' from end of string in the 1st line 
+             String[] str_arr3=string1.split("\\]\\[");      //split array by '][' to get multiple delimiters and add them to string array
+             String joined_str = String.join("|", str_arr3);    //join elements of string array containing all delimiters by '|'(or) , to use any of them  as delimeter
+             str_arr= str_arr2[1].split(joined_str);            //split numbers from new line by joined string as delimiter
+             
+        }
+        
+        //if new line is given to change delimiter( it can also handle single delimeter of any length)(task 7 will be handled here)
+        else if(numbers.startsWith("//")){
                 String[] str_arr2= numbers.split("\\\\n",2);  //split two lines of input and add to array
                 String string1=str_arr2[0].substring(2);      // extract delemiter from 1st line
                 str_arr= str_arr2[1].split(string1);        //split numbers from new line by extracted delimiter 
             
         }
+        
         //else hold existing scenarios
         else{
             System.out.println("no");
