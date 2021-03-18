@@ -53,6 +53,8 @@ public class AddClass {
                     num =Double.parseDouble(str_arr[i]);
                     if(num<0)
                         throw new MyException("Negatives not allowed");
+                    else if(num>1000)
+                        continue;
                     else
                         sum =sum+num;
                 
